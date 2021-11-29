@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ab Volunteers</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class='navbar-content'>
+            <div class="navbar-el">
+                <a href="#about-header">О проекте</a>
+            </div>
+            <div class="navbar-el">
+                <a href="#appeal">Обращение основателя</a>
+            </div>
+            <div class="navbar-el">
+                <a href="#form">Для волонтеров</a>
+            </div>
+            <div class="navbar-el">
+                <a href="#contacts">Контакты</a>
+            </div>
+            <div class="navbar-el"><a href="./sorting">Наши волонтеры</a></div>
+        </div>
+
+    </div>
+
+    <div class='about-header' id='about-header'>О проекте</div>
+
+    <div class='about'>
+        <div class='about-text'>
+            <p>Мы – AB Volunteers – являемся волонтерской организацией, у которой главной
+                целью является улучшение социальной жизни людей и позитивное влияние на
+                общество. У нас есть несколько видов помощи, но акцент мы ставим на улучшение
+                знаний и нужных качеств для профессиональной карьеры. Также, мы помогаем в
+                следующих делах: помощь нуждающимся семьям, помощь в улучшении качества
+                образования в детских домах, экологические сборы мусора, участие в соревнованиях
+                UNESCO, и проведение онлайн-встреч с представителями определенной сферы. На
+                данный момент у нас есть филиалы во всех городах Казахстана, и все стараются
+                помочь в улучшении мира. Мы очень благодарны всем, кто поддерживает нас и
+                помогает нам в течение всего этого долгого процесса. </p>
+        </div>
+        <div class='about-image'>
+            <img src="./logo.jpg" alt="" id='logo'>
+        </div>
+    </div>
+    <div class='appeal-header'>Обращение основателя</div>
+
+    <div class='appeal' id='appeal'>
+
+        <div class="appeal-text">
+            <p>
+                Приветствую вас от лица «AB Volunteers». Меня зовут Аманмырза Жүсіпхан.
+                Во время второй волны коронавируса, многие страны потерпели
+                экономический кризис, соответственно качество образования ухудшилось. Меня эта
+                ситуация не устраивала, и пришла мысль открыть волонтерское сообщество, а далее
+                организацию, которая будет помогать обществу решать актуальные проблемы. Эту
+                идею многие поддержали, и мы начали наш путь с помощи подросткам в поиске
+                себя. Сейчас у нас работает 14 филиалов по всему Казахстану. У нас собраны очень
+                амбициозные ребята, у которых большие планы на будущее. Мы сотрудничаем с
+                UNESCO, Sberbank, abai.online и code-komek.info. Эти компании и организации
+                помогали нам в течение всего времени и мы смогли добиться хороших результатов.
+                Мы – люди, должны улучшать свои качества, потому что совершенству нет
+                предела. Tакже, мы не должны забывать помогать другим. АВ – начало всех начал.
+            </p>
+        </div>
+        <div class="appeal-photo">
+            <img src="./aman.jpg" alt="">
+        </div>
+    </div>
+    <div class="form-header">Регистрация для волонтеров</div>
+    <div class='form' id='form'>
+
+        <form action="/" method="POST">
+            <label for="fname">Имя:</label><br>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="lname">Фамилия:</label><br>
+            <input type="text" id="surname" name="surname"><br><br>
+            <label for="city">Ваш город:</label><br>
+            <input type="text" id="place" name="place"><br><br>
+
+            <label for="email">Ваша почта:</label><br>
+            <input type="text" id="email" name="email"><br><br>
+            <label for="age">Ваш Возраст:</label><br>
+            <input type="text" id="age" name="age"><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="contacts" id='contacts'>
+        <div class='contacts-header'>Наши контакты</div>
+        <div class='contacts-info'>
+            <div class="">Телефон : +7 777 472 88 69</div>
+            <div class="">Почта: abvolunteers777@gmail.com</div>
+            <div class="">Instagram : @ab_volunteers</div>
+
+
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #logo {
+        width: 300px;
+        height: 300px;
+    }
+
+    .about {
+        margin-top: 5%;
+        margin-left: 3%;
+        display: flex;
+        height: 50%;
+    }
+
+    .about-text {
+        width: 60%;
+        font-size: 20px;
+    }
+
+    .about-image>img {
+        margin-left: 30%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .header {
+        height: 10%;
+        width: 100%;
+
+    }
+
+    .header-text {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .appeal {
+        margin-top: 5%;
+        margin-left: 3%;
+        display: flex;
+    }
+
+    .appeal-text {
+        width: 60%;
+        font-size: 20px;
+    }
+
+    .appeal-photo>img {
+        margin-left: 40%;
+        border-radius: 5%;
+        width: 290px;
+        height: 350px;
+    }
+
+    .about-header {
+    
+        font-weight: bold;
+        color: black;
+        font-size: 30px;
+        margin-top: 5%;
+        height: 5%;
+        text-align: center;
+    }
+
+    .appeal-header {
+        margin-top: 5%;
+        color: black;
+        font-weight: bold;
+        font-size: 30px;
+        height: 5%;
+        text-align: center;
+    }
+
+    .form {
+        margin-top: 5%;
+        margin-left: 40%;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .contacts {
+        height: 20vh;
+        margin-top: 14%;
+    }
+
+    .contacts-info {
+        display: flex;
+        margin-left: 10%;
+        margin-top: 2%;
+    }
+
+    .contacts-info>div {
+        font-size: 20px;
+        margin-left: 7%;
+    }
+
+    .contacts-header {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .navbar {
+        font-size: 10px;
+        height: 7vh;
+        width: 100%;
+        border-bottom: black 1px solid;
+    }
+
+    .navbar-content {
+
+        display: flex;
+    }
+
+    .navbar-el {
+        padding-left: 8%;
+    }
+
+    .navbar-el>a {
+        font-size: 20px;
+        font-weight: bold;
+        color: red;
+        text-decoration: none;
+    }
+
+    form>input {
+        width: 40vh;
+        background-color: rgb(235, 235, 235);
+        border-color: gray;
+        border-radius: .7vh;
+        height: 3vh;
+    }
+    .form-header{
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: 10%;
+    }
+</style>
+
+</html>

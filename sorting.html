@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class='navbar-content'>
+            <div class="navbar-el">
+                <a href="..">О проекте</a>
+            </div>
+            <div class="navbar-el">
+                <a href="../#appeal">Обращение основателя</a>
+            </div>
+            <div class="navbar-el">
+                <a href="../#from">Для волонтеров</a>
+            </div>
+            <div class="navbar-el">
+                <a href="..">Контакты</a>
+            </div>
+            <div class="navbar-el"><a href="..">Назад</a></div>
+        </div>
+
+    </div>
+
+    <div class="list">
+        <div class="title">Наша команда:</div><br>
+        <ol id="ol-list">
+
+        </ol>
+    </div>
+    <div class="title" style="color: crimson;">Найти участника по возрасту:</div><br>
+    <input type="number" placeholder="Age" id="age" name="age" >
+    <div id="resulted"></div>
+
+    <!-- Starting scripts  -->
+    <script>
+        function insert(data) {
+            var j = 1;
+            var res = '';
+            for (let i = 0; i <= data.length; i++) {
+                if (data[i]) {
+                    res = res + `<ul>${j}: ${data[i].firstName} ${data[i].surname}\n
+                    <br>
+                    email: ${data[i].email} 
+                    <br>
+                    City: ${data[i].place}
+                    </ul>
+                    <br>`;
+                }
+                j++;
+
+            }
+            document.getElementById('ol-list').innerHTML = res;
+        }
+
+
+        async function getSortedUsers(insert) {
+            let res = await fetch('/getsorted');
+            res = await res.json();
+            console.log(res);
+            insert(res);
+
+        }
+        getSortedUsers(insert)
+
+        async function finArray() {
+
+            let res = await fetch('/sortedages');
+            let Mdata = await res.json();
+
+            let result = [];
+            for (var i = 0; i <= Mdata.length - 1; i++) {
+                Ndata = Mdata[i];
+                // // Data = JSON.parse(Ndata);
+                // // let ages = Ndata.age;
+                let obj =
+                {
+                    name: Ndata.name,
+                    age: Ndata.age
+                }
+                result.push(obj);
+            }
+
+            console.log(result)
+            return result;
+        }
+
+    function binarySearch(result, key) {
+
+        let start = 0;
+        let end = result.length - 1;
+
+        while (start <= end) {
+            let middle = Math.floor((start + end) / 2);
+
+            if (result[middle].age * 1 === key * 1) {
+                // found the key
+                return middle;
+            } else if (result[middle].age * 1 < key * 1) {
+                // continue searching to the right
+                start = middle + 1;
+            } else {
+                // search searching to the left
+                end = middle - 1;
+            }
+        }
+        // key wasn't found
+        return new Error('Not found given value!');
+    }
+
+    document.getElementById('age').addEventListener("keyup", async function (event) {
+        if (event.keyCode === 13) {
+
+            const key = document.getElementById('age').value
+            let resultArray = await finArray();
+            let objKey = binarySearch(resultArray, key)
+            let res = await fetch('/sortedages');
+            let Mdata = await res.json();
+            try {
+                document.getElementById('resulted').innerHTML = `Name: ${ Mdata[objKey].firstName }`;
+
+            }
+            catch (err) {
+                document.getElementById('resulted').innerHTML = 'Not Found';
+
+            }
+
+        }
+    });
+
+    </script>
+    <style>
+        .navbar {
+            height: 7vh;
+            width: 100%;
+            border-bottom: black 1px solid;
+        }
+
+        .navbar-content {
+
+            display: flex;
+        }
+
+        .navbar-el {
+            padding-left: 8%;
+        }
+
+        .navbar-el>a {
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+            text-decoration: none;
+        }
+
+        .title {
+            text-align: left;
+            font-size: x-large;
+            font-weight: bolder;
+            margin: 15px 0px 0px 10px;
+            padding-left: 5%;
+        }
+
+        .list {
+            font-size: large;
+            text-align: left;
+            flex: 50%;
+            float: left;
+            width: 50%;
+            font-weight: bold;
+            color: rgb(216, 65, 65);
+        }
+
+        .input {
+            display: flex;
+            font-size: x-large;
+            color: black;
+            flex: 50%;
+            margin: 5px;
+        }
+
+        ul {
+            margin: auto;
+        }
+
+        #resulted {
+            color: crimson;
+            font-size: medium;
+            font-weight: bolder;
+            margin: 1em;
+            font-size: 1.5em;
+        }
+    </style>
+</body>
+
+</html>
